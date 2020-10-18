@@ -15,7 +15,7 @@ pipeline {
         sh 'ssh root@ubuntu1 \'hostname\''
       }
     }
-    stage("Preparations") {
+    stage("Second step") {
       steps {
         sh 'ssh root@ubuntu1 \'uptime\''
       }
