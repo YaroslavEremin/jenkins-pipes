@@ -1,0 +1,20 @@
+#!groovy
+//Check ubuntu1 properties
+properties([disableConcutentBuilds])
+
+pipeline {
+  agent {
+    label 'master'
+  }
+  options {
+    buildDiscarder(logRotator(numToKeepStr: '10', artifackNumToKeepStr: '10'))
+    timestamps()
+  }
+  stages {
+    stage("Preparations") {
+      steps {
+        sh 'ssh root@ubuntu1 \'hostname\''
+      }
+    }
+  }
+}
