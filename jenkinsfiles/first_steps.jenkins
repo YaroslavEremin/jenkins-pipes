@@ -1,13 +1,12 @@
 #!groovy
 //Check ubuntu1 properties
-properties([disableConcutentBuilds])
-
+properties([disableConcurrentBuilds])
 pipeline {
   agent {
     label 'master'
   }
   options {
-    buildDiscarder(logRotator(numToKeepStr: '10', artifackNumToKeepStr: '10'))
+    buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
     timestamps()
   }
   stages {
